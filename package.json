@@ -1,0 +1,70 @@
+{
+  "name": "nock-test",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/user-event": "^13.5.0",
+  "@types/jest": "^27.4.1",
+    "@types/node": "^16.11.27",
+    "@types/react": "^18.0.5",
+    "@types/react-dom": "^18.0.1",
+    "axios": "^0.26.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.6.3",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "CI=true react-scripts test --logHeapUsage --runInBand --max-old-space-size=300",
+    "test:ci": "REACT_APP_IS_QA=false CI=true node --max-old-space-size=300 --expose-gc ./node_modules/.bin/jest --logHeapUsage --runInBand --detectOpenHandles",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "nock": "^13.2.4",
+    "timers": "^0.1.1"
+  },
+  "jest": {
+    "resetMocks": false,
+    "testEnvironment": "jsdom",
+    "collectCoverageFrom": [
+      "src/**/{!(index|*.index|*.types|*.type|*.stories|*.testMocks|*.d|*Example.component),}.(ts|tsx)"
+    ],
+    "setupFilesAfterEnv": [
+      "./src/setupTests.ts"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text-summary"
+    ],
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "transform": {
+      "^.+\\.(ts|js)x?$": "babel-jest"
+    }
+  }
+}

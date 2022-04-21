@@ -1,0 +1,12 @@
+#!/bin/bash
+
+file="App.test.tsx"
+
+for i in {1..80}
+do
+	newFile=${file/.test/$i.test}
+	echo $newFile;
+
+   rm $newFile
+   cp $file $newFile
+done
